@@ -1,6 +1,8 @@
 import { Component } from "@angular/core";
 import { Product } from "../model/product.model";
 import { ProductRepository } from "../model/product.repository";
+import { Cart } from './../model/cart.model';
+
 @Component({
     selector: "app-store",
     templateUrl: "store.component.html"
@@ -9,7 +11,7 @@ export class StoreComponent {
     public selectedCategory = null;
     public productsPerPage = 4;
     public selectedPage = 1;
-    constructor(private repository: ProductRepository) { }
+    constructor(private repository: ProductRepository, public cart: Cart) { }
     get products(): Product[] {
         let pageIndex = (this.selectedPage - 1) * this.productsPerPage
         return this.repository.getProducts(this.selectedCategory)
@@ -17,6 +19,9 @@ export class StoreComponent {
     }
     get categories(): string[] {
         return this.repository.getCategories();
+    }
+    get pageCount(): number {
+        return Math.ceil(this.repository.getProducts(this.selectedCategory).length / this.productsPerPage);
     }
     changeCategory(newCategory?: string) {
         this.selectedCategory = newCategory;
@@ -28,12 +33,7 @@ export class StoreComponent {
         this.productsPerPage = Number(newSize);
         this.changePage(1);
     }
-    get pageCount(): number {
-        return Math.ceil(this.repository.getProducts(this.selectedCategory).length / this.productsPerPage);
+    addProductToCart(product) {
+        this.cart.addLine(product);
     }
-    // get pageNumbers(): number[] {
-    //     return Array(Math.ceil(this.repository
-    //         .getProducts(this.selectedCategory).length / this.productsPerPage))
-    //         .fill(0).map((x, i) => i + 1);
-    // }
 }
