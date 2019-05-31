@@ -3,6 +3,7 @@ const APP_SECRET = "myappsecret";
 const USERNAME = "admin";
 const PASSWORD = "secret";
 module.exports = function (req, res, next) {
+
     if ((req.url == "/api/login" || req.url == "/login")
         && req.method == "POST") {
         if (req.body != null && req.body.name == USERNAME
@@ -21,6 +22,7 @@ module.exports = function (req, res, next) {
         || ((req.url.startsWith("/api/orders")
             || req.url.startsWith("/orders")) && req.method != "POST")) {
         let token = req.headers["authorization"];
+        console.log('token: ' + token);
         if (token != null && token.startsWith("Bearer<")) {
             token = token.substring(7, token.length - 1);
             try {

@@ -7,12 +7,11 @@ import { RestDataSource } from './rest.datasource';
 export class OrderRepository {
     private orders: Order[] = [];
     private loaded: boolean = false;
-
-    constructor(private dataSource: RestDataSource) {}
-
+    constructor(private dataSource: RestDataSource) { }
     loadOrders() {
         this.loaded = true;
-        this.dataSource.getOrders().subscribe(orders => this.orders = orders);
+        this.dataSource.getOrders()
+            .subscribe(orders => this.orders = orders);
     }
     getOrders(): Order[] {
         if (!this.loaded) {
@@ -20,11 +19,9 @@ export class OrderRepository {
         }
         return this.orders;
     }
-
     saveOrder(order: Order): Observable<Order> {
         return this.dataSource.saveOrder(order);
     }
-
     updateOrder(order: Order) {
         this.dataSource.updateOrder(order).subscribe(order => {
             this.orders.splice(this.orders.
@@ -33,7 +30,7 @@ export class OrderRepository {
     }
     deleteOrder(id: number) {
         this.dataSource.deleteOrder(id).subscribe(order => {
-            this.orders.splice(this.orders.findIndex(o => id == o.id));
+            this.orders.splice(this.orders.findIndex(o => id == o.id), 1);
         });
     }
 }
