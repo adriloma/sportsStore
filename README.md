@@ -2,26 +2,24 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
 
-## Development server
+Users can navigate through a products list and filter them by categories. They can add products to the shopping cart and complete an order.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Admin users can check orders and mark them as shipped. They can also create, edit and remove products.
 
-## Code scaffolding
+To access admin section you need to use the following credentials:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+**username:** admin
+**password:** secret
 
-## Build
+![](readme-images/store.png)
+![](readme-images/cart.png)
+![](readme-images/admin0.png)
+![](readme-images/admin1.png)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## How to run the applicatoin
 
-## Running unit tests
+Run `npm install` to install every project dependency.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `npm run json` to start json-server on `http://localhost:3500/`.
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
