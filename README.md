@@ -9,12 +9,24 @@ Admin users can check orders and mark them as shipped. They can also create, edi
 To access admin section you need to use the following credentials:
 
 **username:** admin
+
 **password:** secret
 
+
 ![](readme-images/store.png)
+_store view_
+
+
 ![](readme-images/cart.png)
+_Shopping cart view_
+
+
 ![](readme-images/admin0.png)
+_Admin products crud_
+
+
 ![](readme-images/admin1.png)
+_Admin orders crud_
 
 ## How to run the applicatoin
 
