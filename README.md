@@ -13,20 +13,21 @@ To access admin section you need to use the following credentials:
 **password:** secret
 
 
-![](readme-images/store.png)
 _store view_
+![](readme-images/store.png)
 
 
-![](readme-images/cart.png)
 _Shopping cart view_
+![](readme-images/cart.png)
 
 
-![](readme-images/admin0.png)
 _Admin products crud_
+![](readme-images/admin0.png)
 
 
-![](readme-images/admin1.png)
 _Admin orders crud_
+![](readme-images/admin1.png)
+
 
 ## How to run the applicatoin
 
